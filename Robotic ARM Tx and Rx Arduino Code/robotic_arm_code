@@ -71,7 +71,7 @@ void setup() {
     sendData("AT+CIPMUX=1\r\n", 1000, DEBUG); //allow multiple connections
     sendData("AT+CIPSERVER=1,80\r\n", 1000, DEBUG); // start web server on port 80
 }
-
+// main loop to check icoming messages
 void loop() {  
 
   if (Serial3.available())  //check if there is data available on ESP8266
@@ -112,7 +112,7 @@ void loop() {
         }
       }
     }               
-
+//increase/decrease the angle of each servo
   if (angle1 > angle1sp) {
     angle1 -= 1;
     s1.write(angle1);
